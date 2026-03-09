@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>导出中心 - AI短剧创作智能体</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=ZCOOL+XiaoWei&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+
+    <main class="container">
+      <nav class="top-nav">
+        <a href="/" class="brand">短剧智能体</a>
+        <div class="nav-links">
+          <a href="/studio">创作工坊</a>
+          <a href="/visual">可视化编辑</a>
+          <a class="active" href="/export-center">导出中心</a>
+          <a href="/video-lab">视频实验室</a>
+        </div>
+      </nav>
+
+      <header class="hero compact">
+        <h1>导出中心</h1>
+        <p>在完成创作后统一导出 Markdown、Word 和 PDF 文件。</p>
+      </header>
+
+      <section class="panel">
+        <h2>导出操作</h2>
+        <div class="grid three">
+          <button id="btn-export">生成 Markdown 导出稿</button>
+          <button id="btn-export-docx">下载 Word (.docx)</button>
+          <button id="btn-export-pdf">下载 PDF (.pdf)</button>
+        </div>
+        <pre id="export-output" class="output"></pre>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

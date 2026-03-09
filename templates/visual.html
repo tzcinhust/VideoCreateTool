@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>可视化编辑 - AI短剧创作智能体</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=ZCOOL+XiaoWei&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/style.css" />
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+
+    <main class="container">
+      <nav class="top-nav">
+        <a href="/" class="brand">短剧智能体</a>
+        <div class="nav-links">
+          <a href="/studio">创作工坊</a>
+          <a class="active" href="/visual">可视化编辑</a>
+          <a href="/export-center">导出中心</a>
+          <a href="/video-lab">视频实验室</a>
+        </div>
+      </nav>
+
+      <header class="hero compact">
+        <h1>可视化编辑</h1>
+        <p>管理角色关系图与情节时间线拖拽排序。</p>
+      </header>
+
+      <section class="panel">
+        <div class="grid two viz-wrap no-top-line">
+          <div>
+            <h2>角色关系图</h2>
+            <div id="relationship-graph" class="viz-box"></div>
+            <div class="grid two relation-editor">
+              <input id="rel-from-display" placeholder="起点角色（从图上选择）" readonly />
+              <input id="rel-to-display" placeholder="终点角色（从图上选择）" readonly />
+              <input id="rel-type" placeholder="关系类型，例如：同事、恋人、对立" />
+              <input id="rel-tension" placeholder="冲突点，例如：价值观冲突" />
+            </div>
+            <p id="rel-status" class="hint">操作提示：点击连线编辑；或依次点击两个角色节点创建关系。</p>
+            <div class="grid two relation-actions">
+              <button id="btn-rel-save">新增/更新关系</button>
+              <button id="btn-rel-remove">删除该关系</button>
+            </div>
+          </div>
+          <div>
+            <h2>情节时间线拖拽</h2>
+            <p class="hint">拖动卡片即可调整顺序，顺序会同步到后续分镜与导出。</p>
+            <ul id="timeline-list" class="timeline-list"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

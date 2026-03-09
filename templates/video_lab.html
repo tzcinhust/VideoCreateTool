@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>视频实验室 - AI短剧创作智能体</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=ZCOOL+XiaoWei&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+
+    <main class="container">
+      <nav class="top-nav">
+        <a href="/" class="brand">短剧智能体</a>
+        <div class="nav-links">
+          <a href="/studio">创作工坊</a>
+          <a href="/visual">可视化编辑</a>
+          <a href="/export-center">导出中心</a>
+          <a class="active" href="/video-lab">视频实验室</a>
+        </div>
+      </nav>
+
+      <header class="hero compact">
+        <h1>视频实验室</h1>
+        <p>先用千问写短剧与镜头提示词，再用万相文生视频出片。</p>
+      </header>
+
+      <section class="panel">
+        <h2>1. 输入短剧需求</h2>
+        <div class="grid two">
+          <textarea id="video-idea" placeholder="核心设定，例如：外卖员陷入时间循环，每次都要在5分钟内救下一个陌生人"></textarea>
+          <div class="mini-form">
+            <input id="video-genre" placeholder="题材，例如：都市悬疑" />
+            <input id="video-roles" placeholder="人物，例如：外卖员阿城、神秘女孩、交警" />
+            <input id="video-style" placeholder="风格，例如：电影感、冷调、快剪" />
+            <input id="video-duration" type="number" min="5" max="10" value="10" placeholder="时长秒数" />
+            <button id="btn-video-script">生成短剧脚本+视频提示词</button>
+          </div>
+        </div>
+        <pre id="video-script-output" class="output"></pre>
+      </section>
+
+      <section class="panel">
+        <h2>2. 提交视频生成任务</h2>
+        <div class="grid two">
+          <textarea id="video-prompt" placeholder="可编辑视频提示词，建议保留脚本生成结果中的提示词"></textarea>
+          <div class="mini-form">
+            <input id="video-model" value="wan2.6-t2v" placeholder="模型，例如：wan2.6-t2v" />
+            <input id="video-size" value="1280*720" placeholder="分辨率，例如：1280*720" />
+            <input id="video-duration-task" type="number" min="5" max="10" value="10" placeholder="视频时长" />
+            <label class="hint" style="display:flex; align-items:center; gap:8px; margin:0;">
+              <input id="video-auto-poll" type="checkbox" checked style="width:auto;" />
+              自动轮询（每15秒）
+            </label>
+            <button id="btn-video-create">创建视频任务</button>
+            <button id="btn-video-refresh">查询任务状态</button>
+            <button id="btn-video-stop-poll">停止自动轮询</button>
+          </div>
+        </div>
+        <pre id="video-task-output" class="output"></pre>
+        <div id="video-result-wrap" class="panel soft" style="display:none; margin-top:12px;">
+          <h3>3. 生成结果</h3>
+          <video id="video-result-player" controls style="width:100%; border-radius:12px;"></video>
+          <p id="video-result-link" class="hint"></p>
+        </div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

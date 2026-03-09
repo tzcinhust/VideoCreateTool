@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>创作工坊 - AI短剧创作智能体</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=ZCOOL+XiaoWei&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+
+    <main class="container">
+      <nav class="top-nav">
+        <a href="/" class="brand">短剧智能体</a>
+        <div class="nav-links">
+          <a class="active" href="/studio">创作工坊</a>
+          <a href="/visual">可视化编辑</a>
+          <a href="/export-center">导出中心</a>
+          <a href="/video-lab">视频实验室</a>
+        </div>
+      </nav>
+
+      <header class="hero compact">
+        <h1>创作工坊</h1>
+        <p>完成从灵感到剧情节点的核心生成，数据会自动保存在浏览器。</p>
+      </header>
+
+      <section class="panel">
+        <h2>第一层：故事引擎</h2>
+        <div class="grid two">
+          <textarea id="idea" placeholder="一句话创意，例如：一个关于时间循环的外卖员"></textarea>
+          <div class="mini-form">
+            <input id="theme" placeholder="主题偏好（可选）" />
+            <input id="tone" placeholder="情绪基调（可选）" />
+            <input id="structure" placeholder="结构模板偏好（可选）" />
+            <button id="btn-story">生成故事卡</button>
+          </div>
+        </div>
+        <pre id="story-output" class="output"></pre>
+      </section>
+
+      <section class="panel">
+        <h2>第二层：剧本工坊</h2>
+        <div class="grid two">
+          <textarea id="role-req" placeholder="角色要求，例如：主角是表面冷漠但内心善良的医生"></textarea>
+          <textarea id="plot-req" placeholder="情节要求，例如：中段要有误会反转"></textarea>
+        </div>
+        <button id="btn-workshop">生成角色与情节</button>
+        <pre id="workshop-output" class="output"></pre>
+      </section>
+
+      <section class="panel">
+        <h2>第三层：分镜工厂（基础）</h2>
+        <div class="grid two">
+          <input id="visual-style" placeholder="视觉风格，例如：冷色悬疑、快节奏剪辑" />
+          <button id="btn-storyboard">生成分镜脚本</button>
+        </div>
+        <pre id="storyboard-output" class="output"></pre>
+      </section>
+
+      <section class="panel">
+        <h2>全局智能指令</h2>
+        <div class="grid two">
+          <input id="command" placeholder="例如：/将第三个场景改为夜间下雨" />
+          <button id="btn-command">执行命令</button>
+        </div>
+        <pre id="command-output" class="output"></pre>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
